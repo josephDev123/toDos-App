@@ -80,8 +80,8 @@ input[type='submit']:hover{
     border: 2px solid green;
     border-radius: 5px;
     margin: 20px;
+    transition: display 1s ease;
 }
-
 
 
 span{
