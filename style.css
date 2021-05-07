@@ -80,9 +80,15 @@ input[type='submit']:hover{
     border: 2px solid green;
     border-radius: 5px;
     margin: 20px;
-    transition: display 1s ease;
+    opacity: 1;
+    transition: opacity 1s ease-out;
 }
 
+
+.toDoList_wrapper.remove{
+    opacity: 0;
+
+}
 
 span{
     margin-bottom: 10px;

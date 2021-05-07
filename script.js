@@ -37,7 +37,10 @@ function deleteItem(){
   let toDoList_wrapper_Dom = document.querySelector('.toDoList_wrapper')
   let toDoList_wrapper_DomId = toDoList_wrapper_Dom.id;
  textObjArr = textObjArr.filter(item =>item.id !== toDoList_wrapper_DomId);
-  toDoList_wrapper_Dom.remove();
+ toDoList_wrapper_Dom.classList.add('remove');
+  setTimeout(()=>{
+    toDoList_wrapper_Dom.remove();
+  }, 1500) 
   localStorage.setItem('localStorageItem', JSON.stringify(textObjArr))
  }
 
@@ -64,11 +67,9 @@ function getTodosList(){
         
                 textObjArr.push(textObj);
                 localStorage.setItem('localStorageItem', JSON.stringify(textObjArr))
-           
-   
+                todo_text.value =='';
     }
   
-    
 }
 
 
