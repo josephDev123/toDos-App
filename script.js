@@ -1,6 +1,7 @@
 'use strict';
 const submit = document.getElementById('submit');
 const todo_text = document.getElementById('todo_text');
+const timeEl = document.getElementById('time');
 const todoList_container = document.querySelector('.todos_list');
 let textObjArr = localStorage.getItem('localStorageItem')? JSON.parse(localStorage.getItem('localStorageItem')):[];
 // console.log(textObjArr);
@@ -16,7 +17,7 @@ if(textObjArr.length > 0){
         toDo_wrapper.className='toDoList_wrapper';
         toDo_wrapper.id= `${textObj.id}`;
         toDo_wrapper.innerHTML=`
-                <h4>${textObj.text} </h4><span><i class="fas fa-trash" onClick ="deleteItem()"></i></span>
+                <h4>${textObj.text} </h4>   <span class=timestyle><strong>${textObj.time}</strong></span>   <span><i class="fas fa-trash" onClick ="deleteItem()"></i></span>
         `
         todoList_container.appendChild(toDo_wrapper)
 
@@ -46,14 +47,18 @@ function deleteItem(){
 
 
 function getTodosList(){
-    if(todo_text.value == ""){
-        console.log("Field can't be empty");
+    if(todo_text.value == "" || timeEl.value ==""){
+       alert("Field(s) can't be empty");
     }else{
+        //creating the object that will store the input values
        let textObj = {
            text:'',
-           id:''
+           id:'',
+           time:''
        };
+       //updating the object
         textObj.text = todo_text.value;
+        textObj.time = timeEl.value;
         textObj.id = ID();
 
             //CREATING THE TODO-LIST ITEMS
@@ -61,7 +66,7 @@ function getTodosList(){
                 toDo_wrapper.className='toDoList_wrapper';
                 toDo_wrapper.id= `${textObj.id}`;
                 toDo_wrapper.innerHTML=`
-                        <h4>${textObj.text} </h4><span><i class="fas fa-trash" onClick ="deleteItem()"></i></span>
+                        <h4>${textObj.text} </h4>  <span><strong>${textObj.time}</strong></span>    <span><i class="fas fa-trash" onClick ="deleteItem()"></i></span>
                 `
                 todoList_container.appendChild(toDo_wrapper)
         

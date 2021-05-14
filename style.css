@@ -82,6 +82,7 @@ input[type='submit']:hover{
     margin: 20px;
     opacity: 1;
     transition: opacity 1s ease-out;
+    align-items: center;
 }
 
 
@@ -104,4 +105,8 @@ span{
     padding: 10px;
     background: red;
     border-radius: 5px;
+}
+
+.timestyle{
+    transform: translateY(10px);
 }
